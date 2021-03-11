@@ -3,6 +3,7 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import Main from '../Main/Main.js';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
+import PopupImage from '../ImagePopup/ImagePopup.js';
 
 function App() {
   //хук открытия поп-апа профиля
@@ -76,15 +77,7 @@ function App() {
         <input id="link-avatar" name="linkAvatar" className="popup__input popup__input_type_link-avatar" type="url" placeholder="Ссылка на аватар" required />
         <span id="link-avatar-error" className="popup__error" />
       </PopupWithForm>
-      <template className="element-template" />
-      <div className="popup popup_type_open">
-        <form name="photoViewForm" className="popup__box">
-          <img className="popup__image" src="#" alt="#" />
-          <button type="button" className="popup__close popup__close-img" />
-          <h3 className="popup__img-title" />
-        </form>
-      </div>
-
+      <PopupImage />
     </div>
   );
 }

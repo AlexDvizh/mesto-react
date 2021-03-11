@@ -2,6 +2,7 @@ import React from 'react';
 import imgEditButton from '../../images/pen.svg';
 import imgAddButton from '../../images/plus.svg';
 import api from '../../utils/api.js';
+import Card from '../Card/Card.js';
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');
@@ -23,7 +24,16 @@ function Main(props) {
       })
       .catch((err) => {
         console.log(err);
-      });
+    });
+
+    api
+      .getCards()
+      .then((data) => {
+        setCards(data)
+      })
+      .catch((err) => {
+        console.log(err);
+    });
   }
 
   return (
@@ -56,34 +66,17 @@ function Main(props) {
         </button>
       </section>
       <section className="elements">
-        <article className="element">
-          <div className="element__photo-wrap">
-            <img className="element__photo" src="./images/karachaevsk.png" alt="Фотография Байкала" />
-            <button className="element__delete" type="button"><img src="<%=require('./images/delete.svg')%>" alt="Иконка урны" /></button>
-          </div>  
-          <div className="element__desc">
-            <h2 className="element__desc-title">Карачаевск</h2>
-            <div className="element__like">
-              <button className="element__desc-like" type="button"><img src="<%=require('./images/heart.svg')%>" alt="Иконка сердца" /></button>
-              <p className="element__like_counter">0</p>
-            </div>
-          </div>
-        </article>
+        {
+          cards.map((card) => (
+            <Card 
+              key={card._id}
+              item={card}
+            />
+          ))
+        }
       </section>
     </main>
   )
 }
-
-// function handleEditAvatarClick() {
-//   document.querySelector('.popup_type_change-avatar').classList.add('popup_opened');
-// }
-
-// function handleEditProfileClick() {
-//   document.querySelector('.popup_type_edit').classList.add('popup_opened');
-// }
-
-// function handleAddPlaceClick() {
-//   document.querySelector('.popup_type_add').classList.add('popup_opened');
-// }
 
 export default Main;
