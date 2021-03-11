@@ -1,10 +1,27 @@
 import React from 'react';
 
 function PopupWithForm(props) {
-  console.log(props.id)
-  // return (
-    
-  // )
+ let popupVisibleClass;
+
+  props.isOpen ? popupVisibleClass='popup_opened' : popupVisibleClass='';
+
+  return (
+    <div className={`popup popup_type_${props.name} ${popupVisibleClass}`}>
+        <div className="popup__content">
+          <button type="button" className="popup__close" onClick={props.onClose} />
+          <form name={props.name} className="popup__form popup__form_profile">
+            <h3 className="popup__form-title">{props.title}</h3>
+            {props.children}
+            <button type="submit" className="popup__form-save">{props.submitButton}</button>
+          </form>  
+        </div>
+      </div>
+  )
 }
 
+
 export default PopupWithForm;
+
+
+
+
