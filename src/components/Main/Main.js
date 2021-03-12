@@ -3,7 +3,6 @@ import imgEditButton from '../../images/pen.svg';
 import imgAddButton from '../../images/plus.svg';
 import api from '../../utils/api.js';
 import Card from '../Card/Card.js';
-import ImagePopup from '../ImagePopup/ImagePopup';
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');

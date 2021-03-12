@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import Main from '../Main/Main.js';
@@ -23,10 +23,6 @@ function App() {
   }
   function handleEditAvatarClick() {
     setEditAvatarPopupOpen(true)
-  }
-
-  function handleCardClick() {
-    setSelectedCard(true)
   }
 
   function closeAllPopups() {
