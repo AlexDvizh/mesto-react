@@ -3,6 +3,7 @@ import imgEditButton from '../../images/pen.svg';
 import imgAddButton from '../../images/plus.svg';
 import api from '../../utils/api.js';
 import Card from '../Card/Card.js';
+import ImagePopup from '../ImagePopup/ImagePopup';
 
 function Main(props) {
   const [userName, setUserName] = React.useState('');
@@ -67,10 +68,11 @@ function Main(props) {
       </section>
       <section className="elements">
         {
-          cards.map((card) => (
+          cards.map((item) => (
             <Card 
-              key={card._id}
-              item={card}
+              key={item._id}
+              card={item}
+              onCardClick={props.onCardClick}
             />
           ))
         }

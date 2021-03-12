@@ -3,7 +3,7 @@ import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';
 import Main from '../Main/Main.js';
 import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
-import PopupImage from '../ImagePopup/ImagePopup.js';
+import ImagePopup from '../ImagePopup/ImagePopup.js';
 
 function App() {
   //хук открытия поп-апа профиля
@@ -11,7 +11,9 @@ function App() {
   //хук открытия поп-апа добавления новой карточки
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   //хук открытия поп-апа аватара
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
+  //хук открытия поп-апа большого фото
+  const [selectedCard, setSelectedCard] = React.useState(false);
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true)
@@ -23,10 +25,15 @@ function App() {
     setEditAvatarPopupOpen(true)
   }
 
+  function handleCardClick() {
+    setSelectedCard(true)
+  }
+
   function closeAllPopups() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
+    setSelectedCard(false);
   }
 
   return (
@@ -36,6 +43,7 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
+        onCardClick={setSelectedCard}
       />
       <Footer />
       <PopupWithForm 
@@ -77,7 +85,10 @@ function App() {
         <input id="link-avatar" name="linkAvatar" className="popup__input popup__input_type_link-avatar" type="url" placeholder="Ссылка на аватар" required />
         <span id="link-avatar-error" className="popup__error" />
       </PopupWithForm>
-      <PopupImage />
+      <ImagePopup
+        card={selectedCard}
+        onClose={closeAllPopups}
+      />
     </div>
   );
 }
