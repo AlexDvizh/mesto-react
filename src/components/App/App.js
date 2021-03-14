@@ -13,7 +13,7 @@ function App() {
   //хук открытия поп-апа аватара
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   //хук открытия поп-апа большого фото
-  const [selectedCard, setSelectedCard] = React.useState('');
+  const [selectedCard, setSelectedCard] = React.useState(null);
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true)
@@ -29,7 +29,7 @@ function App() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
-    setSelectedCard('');
+    setSelectedCard(null);
   }
 
   function handleCardClick(card) {
