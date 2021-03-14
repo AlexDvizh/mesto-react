@@ -13,7 +13,7 @@ function App() {
   //хук открытия поп-апа аватара
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   //хук открытия поп-апа большого фото
-  const [selectedCard, setSelectedCard] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState('');
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true)
@@ -29,7 +29,11 @@ function App() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
-    setSelectedCard(false);
+    setSelectedCard('');
+  }
+
+  function handleCardClick(card) {
+    setSelectedCard(card);
   }
 
   return (
@@ -39,7 +43,7 @@ function App() {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
-        onCardClick={setSelectedCard}
+        onCardClick={handleCardClick}
       />
       <Footer />
       <PopupWithForm 
@@ -82,6 +86,7 @@ function App() {
         <span id="link-avatar-error" className="popup__error" />
       </PopupWithForm>
       <ImagePopup
+        isOpen={selectedCard}
         card={selectedCard}
         onClose={closeAllPopups}
       />

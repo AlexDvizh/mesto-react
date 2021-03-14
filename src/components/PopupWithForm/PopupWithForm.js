@@ -1,12 +1,12 @@
 import React from 'react';
 
 function PopupWithForm(props) {
- let popupVisibleClass;
+//  let popupVisibleClass;
 
-  props.isOpen ? popupVisibleClass='popup_opened' : popupVisibleClass='';
+//   props.isOpen ? popupVisibleClass='popup_opened' : popupVisibleClass='';
 
   return (
-    <div className={`popup popup_type_${props.name} ${popupVisibleClass}`}>
+    <div className={`popup popup_type_${props.name} ${props.isOpen ? 'popup_opened' : ''}`}>
         <div className="popup__content">
           <button type="button" className="popup__close" onClick={props.onClose} />
           <form name={props.name} className="popup__form popup__form_profile">
