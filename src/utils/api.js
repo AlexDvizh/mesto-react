@@ -31,10 +31,10 @@ class Api {
         authorization: this._token,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data
-        // name: data.link,
-        // link: data.link
-      )
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link
+      })
     })
     .then((res) => {
         return this._getResponse(res);
@@ -54,7 +54,7 @@ class Api {
   }
 
   //запрос изменения данных профиля
-  setUserInfoFromServer(data) {
+  setUserInfoFromServer(info) {
     return fetch(`${this._address}users/me`, {
       method: 'PATCH',
       headers: {
@@ -62,8 +62,8 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: `${data.userName}`, 
-        about: `${data.userJob}`
+        name: info.name, 
+        about: info.about
       })
     })
     .then((res) => {
@@ -80,7 +80,7 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: data.linkAvatar
+        avatar: data.avatar
       })
     }) 
     .then((res) => {
