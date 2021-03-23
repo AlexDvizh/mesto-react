@@ -2,7 +2,7 @@ import React from 'react';
 import imgEditButton from '../images/pen.svg';
 import imgAddButton from '../images/plus.svg';
 import Card from './Card.js';
-import { CurrentUserContext } from '../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Main(props) {
 

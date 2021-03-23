@@ -1,7 +1,7 @@
 import React from 'react';
 import imgDelete from '../images/delete.svg'; 
 import imgLike from '../images/heart.svg';
-import { CurrentUserContext } from '../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function Card({card, onCardClick, onCardLike, onCardDelete}) {
 

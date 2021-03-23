@@ -9,7 +9,7 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup'; 
 import AddPlacePopup from './AddPlacePopup';
 
-import { CurrentUserContext } from '../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 function App() {
   //хук состояния открытия поп-апа профиля
