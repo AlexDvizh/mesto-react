@@ -1,7 +1,7 @@
 import React from 'react';
-import imgDelete from '../../images/delete.svg';
-import imgLike from '../../images/heart.svg';
-import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import imgDelete from '../images/delete.svg'; 
+import imgLike from '../images/heart.svg';
+import { CurrentUserContext } from '../context/CurrentUserContext.js';
 
 function Card({card, onCardClick, onCardLike, onCardDelete}) {
 
@@ -23,7 +23,6 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
 
   // Определяем, являемся ли мы владельцем текущей карточки
   const isOwn = card.owner._id === userInfo._id;
-  console.log(card.owner._id)
   // Создаём переменную, которую после зададим в `className` для кнопки удаления
   const cardDeleteButtonClassName = (
     `element__delete ${!isOwn ? 'element__delete_disabled' : ''}`

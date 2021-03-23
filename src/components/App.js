@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
-import Main from '../Main/Main.js';
-import PopupWithForm from '../PopupWithForm/PopupWithForm.js';
-import ImagePopup from '../ImagePopup/ImagePopup.js';
-import api from '../../utils/api.js';
-import EditProfilePopup from '../EditProfilePopup/EditProfilePopup.js';
-import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup.js'; 
-import AddPlacePopup from '../AddPlacePopup/AddPlacePopup.js';
+import Header from './Header';
+import Footer from './Footer';
+import Main from './Main';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
+import api from '../utils/api.js';
+import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup'; 
+import AddPlacePopup from './AddPlacePopup';
 
-import { CurrentUserContext } from '../../context/CurrentUserContext.js';
+import { CurrentUserContext } from '../context/CurrentUserContext.js';
 
 function App() {
   //хук состояния открытия поп-апа профиля
