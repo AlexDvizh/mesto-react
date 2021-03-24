@@ -12,8 +12,8 @@ function AddPlacePopup (props) {
       name: cardTitle,
       link: cardLink
     })
-    setCardTitle('');
-    setCardLink('');
+    // setCardTitle('');
+    // setCardLink('');
   }
 
   return (
