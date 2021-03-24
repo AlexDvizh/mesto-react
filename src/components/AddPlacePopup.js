@@ -12,9 +12,14 @@ function AddPlacePopup (props) {
       name: cardTitle,
       link: cardLink
     })
-    // setCardTitle('');
-    // setCardLink('');
   }
+
+  React.useEffect(() => {
+    if(props.isOpen === false) {
+      setCardTitle('');
+      setCardLink('');
+    }
+  }, [props.isOpen])
 
   return (
     <PopupWithForm 
@@ -26,10 +31,10 @@ function AddPlacePopup (props) {
       onSubmit={handleSubmit}
     >
       <input id="name-photo" name="namePhoto" className="popup__input popup__input_type_photo-name" 
-      type="text" placeholder="Название" onChange={(evt) => setCardTitle(evt.target.value)} required minLength={2} maxLength={30} />
+      type="text" placeholder="Название" onChange={(evt) => setCardTitle(evt.target.value)} value={cardTitle} required minLength={2} maxLength={30} />
       <span id="name-photo-error" className="popup__error" />
       <input id="link-photo" name="linkPhoto" className="popup__input popup__input_type_link-photo" 
-      type="url" placeholder="Ссылка на картинку" onChange={(evt) => setCardLink(evt.target.value)} required />
+      type="url" placeholder="Ссылка на картинку" onChange={(evt) => setCardLink(evt.target.value)} value={cardLink} required />
       <span id="link-photo-error" className="popup__error" />
     </PopupWithForm>
   )

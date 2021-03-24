@@ -3,7 +3,8 @@ import PopupWithForm from './PopupWithForm.js';
 
 function EditAvatarPopup(props) {
 
-  const [inputValue, setInputValue] = React.useState('');
+  // const inputValue = React.useRef();
+  // console.log(inputValue);
 
   const userAvatar = React.useRef();
 
@@ -15,11 +16,12 @@ function EditAvatarPopup(props) {
     });
   } 
 
-  React.useEffect(() => {
-    if(props.isOpen === false) {
-      setInputValue('');
-    }
-  }, [props.isOpen])
+  // React.useEffect(() => {
+  //   if(props.isOpen === false) {
+  //     // inputValue.current.value = '';
+
+  //   }
+  // }, [props.isOpen])
 
   return (
     <PopupWithForm 
@@ -31,7 +33,7 @@ function EditAvatarPopup(props) {
       onSubmit={handleSubmit}
     >
       <input id="link-avatar" name="linkAvatar" className="popup__input popup__input_type_link-avatar" 
-        type="url" placeholder="Ссылка на аватар" value={inputValue} onChange={(evt) => setInputValue(evt.target.value)} ref={userAvatar} required />
+        type="url" placeholder="Ссылка на аватар" ref={userAvatar} required />
       <span id="link-avatar-error" className="popup__error" />
     </PopupWithForm>
   )
